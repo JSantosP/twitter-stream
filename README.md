@@ -34,35 +34,36 @@ How to run
 
 Declare an Scala bootable object like this in your project:
 
-```
-  import org.bfc.twitter.Analytics
-  
-  object Boot extends Analytics{
+```scala
 
-    //  Add filters ...
-  
-    filter(
-      "dance",
-      "music"
-    )
-  
-    //  ... add actions to perform ...
-  
-    when { tweets =>
-      tweets.foreach {
-        tweet => logger.info(s"\n$tweet")
-      }
-    }
-  
-    when { tweets =>
-      logger.info(s"Received tweets [${tweets.count()}}]")
-    }
-  
-    // ... and begin listening
-  
-    listen()
+import org.bfc.twitter.Analytics
 
+object Boot extends Analytics{
+
+  //  Add filters ...
+
+  filter(
+    "dance",
+    "music"
+  )
+
+  //  ... add actions to perform ...
+
+  when { tweets =>
+    tweets.foreach {
+      tweet => logger.info(s"\n$tweet")
+    }
   }
+
+  when { tweets =>
+    logger.info(s"Received tweets [${tweets.count()}}]")
+  }
+
+  // ... and begin listening
+  
+  listen()
+
+}
 ```
 
 And then:
