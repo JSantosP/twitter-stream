@@ -1,6 +1,6 @@
-package org.bfc.twitter
+package org.bfc.streaming.twitter
 
-trait Credentials {_: util.Config =>
+trait Credentials {_: org.bfc.streaming.core.util.Config =>
   import Credentials._
 
     System.setProperty(ConsumerKey, config.getString(ConsumerKey))

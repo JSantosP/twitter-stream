@@ -1,6 +1,10 @@
-package org.bfc.twitter
+package org.bfc.streaming.twitter
 
-object Boot extends Analytics{
+import org.bfc.streaming.core.Analytics
+
+object Boot extends Analytics
+with Credentials
+with Source {
 
   //  Add filters ...
 

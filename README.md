@@ -36,7 +36,7 @@ Declare an Scala bootable object like this in your project:
 
 ```scala
 
-import org.bfc.twitter.Analytics
+import org.bfc.streaming.core.Analytics
 
 object Boot extends Analytics{
 

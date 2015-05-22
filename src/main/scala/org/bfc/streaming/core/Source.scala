@@ -1,17 +1,15 @@
-package org.bfc.twitter
+package org.bfc.streaming.core
 
 import org.apache.spark.SparkConf
-import org.apache.spark.streaming.twitter.TwitterUtils
-import org.apache.spark.streaming.{StreamingContext, Seconds}
-import util.Config
+import org.apache.spark.streaming.dstream.ReceiverInputDStream
+import org.apache.spark.streaming.{Seconds, StreamingContext}
+import org.bfc.streaming.core.util.Config
 
 /**
  * A Source opens a stream of tweets from set configuration.
  */
-trait Source extends Actions with Filters {
+trait Source extends Actions {
   _: util.Config =>
-
-  type Content = twitter4j.Status
 
   val conf = new SparkConf()
     .setAppName(config.getString(Config.AppName))
@@ -21,7 +19,6 @@ trait Source extends Actions with Filters {
 
   val ssc = new StreamingContext(conf, windowTime)
 
-  lazy val stream = TwitterUtils.createStream(ssc, None, filters)
+  val stream: ReceiverInputDStream[Content]
 
 }
-

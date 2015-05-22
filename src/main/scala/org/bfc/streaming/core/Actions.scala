@@ -1,9 +1,8 @@
-package org.bfc.twitter
+package org.bfc.streaming.core
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.streaming.StreamingContext
 import org.apache.spark.streaming.dstream.ReceiverInputDStream
-import org.bfc.twitter.util.Config
 
 /**
  * It Handles all action additions

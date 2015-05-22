@@ -1,5 +1,8 @@
-package org.bfc.twitter
+package org.bfc.streaming.twitter
 
+/**
+ * Created by Javier on 22/05/2015.
+ */
 trait Filters {
 
   private var _filters: Seq[String] = Seq()

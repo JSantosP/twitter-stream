@@ -1,4 +1,4 @@
-package org.bfc.twitter.util
+package org.bfc.streaming.core.util
 
 import org.slf4j.LoggerFactory
 
