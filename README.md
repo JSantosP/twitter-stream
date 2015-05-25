@@ -32,41 +32,28 @@ twitter4j.oauth {
 How to run
 ----------
 
-Declare an Scala bootable object like this in your project:
+Have a look at ```src/main/scala/org/bfc/streaming/twitter/Boot.scala```.
+For declaring filters use :
 
 ```scala
+filters("music","dance")
+```
 
-import org.bfc.streaming.core.Analytics
+For declaring actions to perform when a fresh bunch of tweets arrive:
 
-object Boot extends Analytics{
-
-  //  Add filters ...
-
-  filter(
-    "dance",
-    "music"
-  )
-
-  //  ... add actions to perform ...
-
-  when { tweets =>
-    tweets.foreach {
-      tweet => logger.info(s"\n$tweet")
-    }
-  }
-
-  when { tweets =>
-    logger.info(s"Received tweets [${tweets.count()}}]")
-  }
-
-  // ... and begin listening
-  
-  listen()
-
+```scala
+when{ tweets =>
+ logger.info(tweets.count)
 }
 ```
 
-And then:
+When you're finished, start receiving tweets by
+
+```scala
+listen()
+```
+
+To execute the provided example just:
 
 ```
   sbt run
